@@ -19,7 +19,13 @@ include build/make/target/board/BoardConfigPixelCommon.mk
 
 TARGET_BOARD_PLATFORM := lito
 USES_DEVICE_GOOGLE_REDBULL := true
+TARGET_KERNEL_CLANG_COMPILE := true
+KERNEL_LLVM_BIN := prebuilts/clang/host/linux-x86/clang-r547379/bin
 
+# Set LTO mode to full
+KERNEL_LTO := full
+
+KERNEL_EXTRA_FLAGS += -Wno-shadow
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
